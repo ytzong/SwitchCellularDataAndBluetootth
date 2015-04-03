@@ -12,7 +12,7 @@
 #import "GLBluetoothController.h"
 
 
-static CGFloat kDefaultHeight = 48.0f;
+static CGFloat kDefaultHeight = 80.0f;
 
 extern BOOL CTCellularDataPlanGetIsEnabled();
 extern void CTCellularDataPlanSetIsEnabled(BOOL enabled);
@@ -88,6 +88,10 @@ extern void CTCellularDataPlanSetIsEnabled(BOOL enabled);
 
 - (IBAction)shareNewwork:(id)sender {
     NSURL *url = [NSURL URLWithString:@"prefs:root=INTERNET_TETHERING"];
+    [self.extensionContext openURL:url completionHandler:nil];
+}
+- (IBAction)btnVPNClick:(id)sender {
+    NSURL *url = [NSURL URLWithString:@"prefs:root=General&path=VPN"];
     [self.extensionContext openURL:url completionHandler:nil];
 }
 
